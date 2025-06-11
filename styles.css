@@ -30,7 +30,6 @@ body {
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
-  height: 100%;
 }
 
 a {
@@ -66,17 +65,6 @@ ul {
 .btn:active {
   transform: translateY(0);
   box-shadow: none;
-}
-
-.btn--outline {
-  background-color: transparent;
-  border: 2px solid var(--white);
-  color: var(--white);
-}
-
-.btn--outline:hover {
-  background-color: var(--white);
-  color: var(--primary);
 }
 
 .section-title {
@@ -163,6 +151,9 @@ ul {
   margin-bottom: 2px;
 }
 
+footer .language-current::after {
+  filter: brightness(0) invert(1);
+}
 .language-list {
   position: absolute;
   top: 100%;
@@ -261,7 +252,6 @@ ul {
   position: relative;
   background-image: url("images/background.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
   background-color: var(--secondary);
 }
 
@@ -292,19 +282,18 @@ ul {
 
 .hero__cta {
   margin-top: 18px;
+  margin-bottom: 35%;
 }
 
 /* Scroll down button */
 .scroll-down {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
+  margin-left: 50%;
   display: block;
   width: 29px;
   height: 29px;
   z-index: 10;
   cursor: pointer;
+  padding-bottom: 20px;
 }
 
 .scroll-down img {
@@ -343,20 +332,23 @@ ul {
 .about__cards {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 50px;
   margin-bottom: 70px;
 }
 
 .about-card {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .divider {
   background-color: var(--primary);
-  height: 160px;
+  height: 80%;
   width: 1px;
   align-self: flex-end;
+  position: absolute;
+  bottom: 0;
 }
 
 .card-icon {
@@ -790,14 +782,11 @@ ul {
     padding: 0 60px;
   }
   .hero {
-    height: 100%;
+    background-size: contain;
   }
   .hero__content {
     margin-top: 74px;
     max-width: 457px;
-  }
-  .hero__cta {
-    padding-bottom: 180px;
   }
   .about__image img {
     width: 220px;
@@ -805,7 +794,10 @@ ul {
   }
   .services__grid {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 1fr); 
+    grid-template-rows: repeat(4, auto); 
+  }
+  .service-card {
+    display: block;
   }
   .advantage-text,
   .service-text {
@@ -816,41 +808,20 @@ ul {
   }
   .service-title {
     font-size: 20px;
-    gap: 10px;
-  }
-  .service-list li {
-    margin-bottom: 0;
-  }
-.service-card {
-    display: grid;
-    grid-template-columns: auto 1fr; /* Колонки: иконка | текст */
-    grid-template-rows: auto auto; /* Два ряда: верхний (заголовок и текст) и нижний (разделитель) */
-    grid-gap: 1em; /* Промежуток между элементами */
-  }
-
-  /* Иконка расположена слева */
-  .card-icon {
-    grid-column: 1; /* Левая колонка */
-    grid-row: 1; /* Верхний ряд */
-    justify-self: start; /* Прилеплена к началу колонки */
-    margin-bottom: 0;
-  }
-
-  /* Сначала заголовок, затем текст */
-  .service-title {
-    grid-column: 2; /* Правая колонка */
-    grid-row: 1; /* Верхний ряд */
-    gap: 10px;
+    margin-bottom: 10px;
   }
   .service-text,
-  .service-list {
-    grid-column: 2; /* Правая колонка */
-    grid-row: 1; /* Верхний ряд */
-    align-self: end; /* Чуть ниже заголовка */
+  .service-list li {
+    margin-bottom: 0;
+    font-weight: 500;
+  }
+
+  .about__cards {
+    gap: 20px;
   }
 }
 
-@media (max-width: 883px) {
+@media (max-width: 704px) {
   .section-title {
     font-size: 24px;
   }
@@ -957,6 +928,7 @@ ul {
     background-image: url("images/background-mobile.jpg");
     background-repeat: no-repeat;
     background-size: contain;
+    height: 100vh;
   }
   .hero__content {
     margin-top: 317px;
