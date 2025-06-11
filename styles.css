@@ -30,6 +30,7 @@ body {
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
+  height: 100%;
 }
 
 a {
@@ -258,7 +259,6 @@ ul {
   padding-top: 70px;
   height: 100vh;
   position: relative;
-  overflow: hidden;
   background-image: url("images/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -780,6 +780,74 @@ ul {
 .scroll-top {
   align-self: flex-end;
   margin: 0 auto;
+}
+
+@media (max-width: 1039px) {
+  .section-title {
+    font-size: 24px;
+  }
+  .container {
+    padding: 0 60px;
+  }
+  .hero {
+    height: 100%;
+  }
+  .hero__content {
+    margin-top: 74px;
+    max-width: 457px;
+  }
+  .hero__cta {
+    padding-bottom: 180px;
+  }
+  .about__image img {
+    width: 220px;
+    height: 220px;
+  }
+  .services__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr); 
+  }
+  .advantage-text,
+  .service-text {
+    font-weight: 500;
+  }
+  .reviews__subtitle {
+    font-size: 20px;
+  }
+  .service-title {
+    font-size: 20px;
+    gap: 10px;
+  }
+  .service-list li {
+    margin-bottom: 0;
+  }
+.service-card {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Колонки: иконка | текст */
+    grid-template-rows: auto auto; /* Два ряда: верхний (заголовок и текст) и нижний (разделитель) */
+    grid-gap: 1em; /* Промежуток между элементами */
+  }
+
+  /* Иконка расположена слева */
+  .card-icon {
+    grid-column: 1; /* Левая колонка */
+    grid-row: 1; /* Верхний ряд */
+    justify-self: start; /* Прилеплена к началу колонки */
+    margin-bottom: 0;
+  }
+
+  /* Сначала заголовок, затем текст */
+  .service-title {
+    grid-column: 2; /* Правая колонка */
+    grid-row: 1; /* Верхний ряд */
+    gap: 10px;
+  }
+  .service-text,
+  .service-list {
+    grid-column: 2; /* Правая колонка */
+    grid-row: 1; /* Верхний ряд */
+    align-self: end; /* Чуть ниже заголовка */
+  }
 }
 
 @media (max-width: 883px) {

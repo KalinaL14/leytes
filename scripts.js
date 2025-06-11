@@ -1,20 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Language switcher functionality
   const languageSwitcher = document.querySelector(".language-switcher");
   const languageCurrent = document.querySelector(".language-current");
   const languageList = document.querySelector(".language-list");
 
   languageSwitcher.addEventListener("click", function (e) {
     e.stopPropagation();
-    languageList.style.display =
-      languageList.style.display === "block" ? "none" : "block";
+    languageList.style.display = languageList.style.display === "block" ? "none" : "block";
   });
 
-  document.addEventListener("click", function () {
-    languageList.style.display = "none";
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".language-switcher")) {
+      document.querySelectorAll(".language-list").forEach(list => list.style.display = "none");
+    }
   });
 
-  // Switch language
   const languageLinks = document.querySelectorAll(".language-list a");
   languageLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
@@ -23,16 +22,23 @@ document.addEventListener("DOMContentLoaded", function () {
       languageCurrent.textContent = this.textContent;
       languageList.style.display = "none";
 
-      // Here you would implement actual language switching
-      console.log("Switching to language:", lang);
+      document.querySelectorAll(".lang-ru").forEach(el => el.style.display = lang === 'ru' ? '' : 'none');
+      document.querySelectorAll(".lang-he").forEach(el => el.style.display = lang === 'he' ? '' : 'none');
+
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[class*="lang-"]').forEach(el => {
+        if (el.classList.contains('lang-he')) {
+          el.style.direction = lang === 'he' ? 'rtl' : 'ltr';
+        } else {
+          el.style.direction = 'ltr';
+        }
+      });
     });
   });
 
-  // Smooth scrolling
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
-
       const targetId = this.getAttribute("href");
       if (targetId === "#") return;
 
@@ -40,29 +46,19 @@ document.addEventListener("DOMContentLoaded", function () {
       if (targetElement) {
         const headerHeight = document.querySelector(".header").offsetHeight;
         const targetPosition = targetElement.offsetTop - headerHeight;
-
-        window.scrollTo({
-          top: targetPosition,
-          behavior: "smooth",
-        });
+        window.scrollTo({ top: targetPosition, behavior: "smooth" });
       }
     });
   });
 
-  // Scroll to top button
   const scrollTopBtn = document.querySelector(".scroll-top");
   if (scrollTopBtn) {
     scrollTopBtn.addEventListener("click", function (e) {
       e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
-});
 
-document.addEventListener("DOMContentLoaded", function () {
   const reviewImages = document.querySelectorAll(".review__image");
   const modalOverlay = document.querySelector(".modal-overlay");
   const modalImage = document.querySelector(".modal-image");
@@ -73,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentImageIndex = 0;
   const imagesArray = Array.from(reviewImages).map((img) => img.src);
 
-  // Открытие модального окна
   reviewImages.forEach((img, index) => {
     img.addEventListener("click", function () {
       currentImageIndex = index;
@@ -83,7 +78,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Закрытие модального окна
   closeModal.addEventListener("click", closeModalWindow);
   modalOverlay.addEventListener("click", function (e) {
     if (e.target === modalOverlay) {
@@ -91,11 +85,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Навигация стрелками
   prevBtn.addEventListener("click", showPrevImage);
   nextBtn.addEventListener("click", showNextImage);
 
-  // Навигация клавиатурой
   document.addEventListener("keydown", function (e) {
     if (modalOverlay.style.display === "flex") {
       if (e.key === "Escape") {
@@ -110,10 +102,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateModalImage() {
     modalImage.src = imagesArray[currentImageIndex];
-    // Показываем/скрываем стрелки в зависимости от позиции
     prevBtn.style.display = currentImageIndex === 0 ? "none" : "flex";
-    nextBtn.style.display =
-      currentImageIndex === imagesArray.length - 1 ? "none" : "flex";
+    nextBtn.style.display = currentImageIndex === imagesArray.length - 1 ? "none" : "flex";
   }
 
   function showPrevImage() {
