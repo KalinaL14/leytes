@@ -248,10 +248,11 @@ footer .language-current::after {
 /* Hero Section */
 .hero {
   padding-top: 70px;
-  height: 100vh;
+  height: calc(100% - 70px);
   position: relative;
   background-image: url("images/background.jpg");
   background-repeat: no-repeat;
+  background-size: contain;
   background-color: var(--secondary);
 }
 
@@ -288,13 +289,12 @@ footer .language-current::after {
 /* Scroll down button */
 .scroll-down {
   margin-left: 50%;
-  transform: translateX(-50%);
   display: block;
   width: 30px;
   height: 30px;
   z-index: 10;
   cursor: pointer;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .scroll-down img {
@@ -310,11 +310,7 @@ footer .language-current::after {
 }
 
 @keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
+  0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
   }
   40% {
@@ -569,22 +565,22 @@ footer .language-current::after {
   transition: all 0.3s ease;
   padding: 0;
 }
+.modal-arrow img {
+  filter: brightness(0) invert(1);
+}
 
 .modal-arrow:hover {
   background-color: var(--primary-dark);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.modal-arrow:active {
-  transform: translateY(-50%) scale(0.95);
 }
 
 .modal-prev {
+  transform: rotate(90deg);
   left: -25px;
 }
 
 .modal-next {
   right: -25px;
+  transform: rotate(270deg);
 }
 
 /* Крестик сверху справа */
@@ -782,9 +778,6 @@ footer .language-current::after {
   .container {
     padding: 0 60px;
   }
-  .hero {
-    background-size: contain;
-  }
   .hero__content {
     margin-top: 74px;
     max-width: 457px;
@@ -928,8 +921,6 @@ footer .language-current::after {
   .hero {
     background-image: url("images/background-mobile.jpg");
     background-repeat: no-repeat;
-    background-size: contain;
-    height: 100vh;
   }
   .hero__content {
     margin-top: 317px;
@@ -939,6 +930,9 @@ footer .language-current::after {
     font-size: 15px;
     line-height: 22px;
     margin-bottom: 30px;
+  }
+  .hero__cta {
+    margin-bottom: 0;
   }
 
   .about__cards {
