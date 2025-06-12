@@ -252,7 +252,8 @@ footer .language-current::after {
   position: relative;
   background-image: url("images/background.jpg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  background-position: initial;
   background-color: var(--secondary);
 }
 
@@ -262,6 +263,7 @@ footer .language-current::after {
   max-width: 580px;
   margin-left: auto;
   margin-top: 125px;
+  padding-bottom: 20px;
 }
 
 .hero__title {
@@ -282,24 +284,22 @@ footer .language-current::after {
 }
 
 .hero__cta {
-  margin-top: 18px;
-  margin-bottom: 35%;
+  padding-top: 18px;
+  padding-bottom: 35%;
 }
 
 /* Scroll down button */
 .scroll-down {
-  margin-left: 50%;
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 15px;
+  height: 31px;
   z-index: 10;
   cursor: pointer;
-  padding-bottom: 20px;
 }
 
 .scroll-down img {
-  width: 100%;
-  height: 100%;
+  width: 15px;
+  height: 31px;
   animation: bounce 2s infinite;
   transition: transform 0.3s ease;
 }
@@ -364,8 +364,9 @@ footer .language-current::after {
 .about__main {
   display: flex;
   gap: 50px;
-  align-items: center;
+  align-items: flex-start;
   padding-top: 70px;
+  justify-content: flex-start;
 }
 
 .about__image img {
@@ -379,7 +380,7 @@ footer .language-current::after {
 }
 
 .about__text {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .about__list {
@@ -389,7 +390,6 @@ footer .language-current::after {
 .about__list li {
   position: relative;
   padding-left: 25px;
-  margin-bottom: 15px;
 }
 
 .about__list li::before {
@@ -411,7 +411,7 @@ footer .language-current::after {
 
 /* Services Section */
 .services {
-  padding: 100px 0;
+  padding-top: 90px;
 }
 
 .services__grid {
@@ -778,6 +778,9 @@ footer .language-current::after {
   .container {
     padding: 0 60px;
   }
+  .hero {
+    background-position: -120px center;
+  }
   .hero__content {
     margin-top: 74px;
     max-width: 457px;
@@ -814,8 +817,20 @@ footer .language-current::after {
     gap: 20px;
   }
 }
-
+@media (max-width: 920px) {
+  .hero__content {
+    margin: 74px 0 0 auto;
+  }
+}
+@media (max-width: 837px) {
+  .scroll-down {
+    display: none;
+  }
+}
 @media (max-width: 704px) {
+  .hero__content {
+    margin: 317px auto 0 auto;
+  }
   .section-title {
     font-size: 24px;
   }
@@ -850,6 +865,7 @@ footer .language-current::after {
   .about__main {
     flex-direction: column;
     padding: 40px 0;
+    align-items: center;
   }
   .contact,
   .reviews,
@@ -921,9 +937,8 @@ footer .language-current::after {
   .hero {
     background-image: url("images/background-mobile.jpg");
     background-repeat: no-repeat;
-  }
-  .hero__content {
-    margin-top: 317px;
+    background-size: contain;
+    background-position: initial;
   }
 
   .hero__subtitle {
@@ -932,7 +947,7 @@ footer .language-current::after {
     margin-bottom: 30px;
   }
   .hero__cta {
-    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   .about__cards {
@@ -993,9 +1008,6 @@ footer .language-current::after {
   .close-modal {
     top: -45px;
     right: -10px;
-  }
-  .scroll-down {
-    display: none;
   }
   .about__image img {
     width: 220px;
