@@ -21,7 +21,6 @@ body {
   position: relative;
   font-size: 15px;
   line-height: 25px;
-  padding: 0;
 }
 
 .container {
@@ -154,6 +153,7 @@ ul {
 footer .language-current::after {
   filter: brightness(0) invert(1);
 }
+
 .language-list {
   position: absolute;
   top: 100%;
@@ -183,7 +183,6 @@ footer .language-current::after {
   background-color: var(--secondary);
 }
 
-/* Social links styles */
 .social-links {
   display: flex;
   gap: 20px;
@@ -220,7 +219,6 @@ footer .language-current::after {
   transform: scale(0.95);
 }
 
-/* WhatsApp button styles */
 .header__phone {
   display: flex;
   align-items: center;
@@ -235,16 +233,6 @@ footer .language-current::after {
   opacity: 0.9;
 }
 
-.phone-icon {
-  width: 20px;
-  height: 20px;
-}
-
-.btn-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-}
 /* Hero Section */
 .hero {
   padding-top: 70px;
@@ -266,13 +254,6 @@ footer .language-current::after {
   padding-bottom: 20px;
 }
 
-.hero__title {
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 100%;
-  margin-bottom: 20px;
-}
-
 .hero__subtitle {
   margin-bottom: 50px;
 }
@@ -288,7 +269,6 @@ footer .language-current::after {
   padding-bottom: 35%;
 }
 
-/* Scroll down button */
 .scroll-down {
   display: block;
   width: 15px;
@@ -320,6 +300,7 @@ footer .language-current::after {
     transform: translateY(-5px);
   }
 }
+
 /* About Section */
 .about {
   padding: 70px 0;
@@ -351,13 +332,6 @@ footer .language-current::after {
 .card-icon {
   width: 80px;
   height: 80px;
-  margin-bottom: 20px;
-}
-
-.about-title {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 100%;
   margin-bottom: 20px;
 }
 
@@ -465,10 +439,6 @@ footer .language-current::after {
   margin: 50px 0;
 }
 
-.advantage-card:hover {
-  transform: translateY(-5px);
-}
-
 .advantage-title {
   font-size: 20px;
   font-weight: 700;
@@ -484,7 +454,7 @@ footer .language-current::after {
   text-align: center;
 }
 
-/* Original reviews styles */
+/* Reviews Section */
 .reviews {
   padding: 90px 0;
   background-color: var(--secondary);
@@ -513,7 +483,6 @@ footer .language-current::after {
   cursor: pointer;
 }
 
-/* Модальное окно */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -546,7 +515,6 @@ footer .language-current::after {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Стрелки как в хедере */
 .modal-arrow {
   position: absolute;
   top: 50%;
@@ -565,6 +533,7 @@ footer .language-current::after {
   transition: all 0.3s ease;
   padding: 0;
 }
+
 .modal-arrow img {
   filter: brightness(0) invert(1);
 }
@@ -583,7 +552,6 @@ footer .language-current::after {
   transform: rotate(270deg);
 }
 
-/* Крестик сверху справа */
 .close-modal {
   position: absolute;
   top: -50px;
@@ -607,7 +575,6 @@ footer .language-current::after {
   color: #ff5252;
 }
 
-/* Hide scrollbar for reviews wrapper but keep functionality */
 .reviews__wrapper::-webkit-scrollbar {
   height: 5px;
 }
@@ -669,6 +636,7 @@ footer .language-current::after {
   opacity: 0.8;
 }
 
+/* Footer */
 .footer {
   background-color: var(--primary-dark);
   color: var(--white);
@@ -703,12 +671,6 @@ footer .language-current::after {
   gap: 30px;
   align-items: center;
   margin-bottom: 30px;
-}
-
-.footer__right-middle {
-  display: flex;
-  justify-content: flex-end;
-  flex-wrap: wrap;
 }
 
 .footer__phone {
@@ -748,7 +710,7 @@ footer .language-current::after {
   opacity: 0.8;
 }
 
-.footer__middle {
+.footer__right-middle {
   display: flex;
   justify-content: flex-end;
   padding-top: 20px;
@@ -771,6 +733,7 @@ footer .language-current::after {
   margin: 0 auto;
 }
 
+/* Media Queries */
 @media (max-width: 1039px) {
   .section-title {
     font-size: 24px;
@@ -817,16 +780,19 @@ footer .language-current::after {
     gap: 20px;
   }
 }
+
 @media (max-width: 920px) {
   .hero__content {
     margin: 74px 0 0 auto;
   }
 }
+
 @media (max-width: 837px) {
   .scroll-down {
     display: none;
   }
 }
+
 @media (max-width: 704px) {
   .hero__content {
     margin: 317px auto 0 auto;
@@ -842,23 +808,11 @@ footer .language-current::after {
     font-size: 16px;
   }
 
-  .hero__title {
-    font-size: 30px;
-  }
-
-  .hero__subtitle {
-    font-size: 20px;
-  }
-
   .services__grid {
     grid-template-columns: 1fr;
   }
 
   .advantages__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .reviews__grid {
     grid-template-columns: 1fr;
   }
   
@@ -884,10 +838,6 @@ footer .language-current::after {
   }
   .advantages__cta {
     padding-bottom: 40px;
-  }
-
-  .reviews__grid {
-    grid-template-columns: repeat(2, 1fr);
   }
   .reviews__subtitle {
     margin-bottom: 30px;
@@ -993,6 +943,7 @@ footer .language-current::after {
   .scroll-top {
     position: absolute;
     bottom: 20px;
+    right: 20px;
   }
 
   .modal-image {
