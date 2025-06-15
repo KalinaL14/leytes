@@ -29,6 +29,7 @@ body {
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
+  text-wrap: balance;
 }
 
 a {
@@ -71,7 +72,6 @@ ul {
   font-weight: 700;
   color: var(--primary);
   margin-bottom: 20px;
-  line-height: 100%;
 }
 
 /* Header Styles */
@@ -187,6 +187,7 @@ footer .language-current::after {
   display: flex;
   gap: 20px;
   align-items: center;
+  padding-top: 7px;
 }
 
 .social-links img,
@@ -459,11 +460,15 @@ footer .language-current::after {
 .reviews {
   padding: 90px 0;
   background-color: var(--secondary);
+  width: 100%;
+  overflow: hidden;
 }
 
 .reviews .container {
   padding-right: 0;
   margin-right: 0;
+  max-width: 1300px;
+  margin-left: calc((100vw - 1040px) /2);
 }
 
 .reviews__subtitle {
@@ -473,7 +478,7 @@ footer .language-current::after {
 
 .reviews__wrapper {
   display: flex;
-  overflow-x: auto;
+  overflow-x: scroll;
   gap: 15px;
   padding-bottom: 20px;
 }
